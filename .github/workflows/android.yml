@@ -24,6 +24,8 @@ jobs:
       run: |
         chmod +x gradlew
         ./gradlew build
+        ./gradlew moduleZipRelease moduleZipDebug
+        find . -type f -name '*.zip'
         zip -r outputs.zip ./app/build/outputs ./module/build/outputs
 
     # Create release
