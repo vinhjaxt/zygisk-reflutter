@@ -288,6 +288,13 @@ public class AppDetailActivity extends AppCompatActivity {
                 sourceDirs = new String[]{appInfo.publicSourceDir};
                 libAPK = appInfo.publicSourceDir;
             }
+            try {
+                if (new java.io.File("/data/local/tmp/libflutter.so.zip").exists()) {
+                    libAPK = "/data/local/tmp/libflutter.so.zip";
+                }
+            } catch (IOException e) {
+                    android.util.Log.e("zygisk-reflutter", "libAPK", e);
+            }
             TextView apkName = findViewById(R.id.apkName);
             if (libAPK != null) {
                 //apkName.setText(libAPK);
@@ -315,6 +322,7 @@ public class AppDetailActivity extends AppCompatActivity {
                         String finalFlutterPath = flutterPath;
                         new Thread(() -> {
                             String flutterHash = getFlutterhash(finalLibAPK, finalFlutterPath);
+                            android.util.Log.e("zygisk-reflutter", "flutterHash", flutterHash);
                             runOnUiThread(() -> {
                                 //try to find this hash
                                 EngineHashInfo engineHashInfo = EngineHashInfo.getInstance(AppDetailActivity.this);
