@@ -24,7 +24,7 @@ jobs:
       run: |
         chmod +x gradlew
         ./gradlew build
-        ./gradlew ./gradlew :module:assembleRelease
+        ./gradlew :module:assembleRelease
         find . -type f -name '*.zip'
         zip -r outputs.zip ./app/build/outputs ./module/build/outputs
 
