@@ -322,7 +322,7 @@ public class AppDetailActivity extends AppCompatActivity {
                         String finalFlutterPath = flutterPath;
                         new Thread(() -> {
                             String flutterHash = getFlutterhash(finalLibAPK, finalFlutterPath);
-                            android.util.Log.e("zygisk-reflutter", "flutterHash", flutterHash);
+                            android.util.Log.e("zygisk-reflutter", "flutterHash: " + flutterHash);
                             runOnUiThread(() -> {
                                 //try to find this hash
                                 EngineHashInfo engineHashInfo = EngineHashInfo.getInstance(AppDetailActivity.this);
