@@ -201,7 +201,7 @@ public class AppDetailActivity extends AppCompatActivity {
         arch = System.getProperty("os.arch");
         if (arch.equals("aarch64")) {
             arch = "arm64";
-        } else if (arch.equals("armv71")) {
+        } else if (arch.contains("armv")) {
             arch = "arm";
         }
 
