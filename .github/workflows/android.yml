@@ -24,7 +24,7 @@ jobs:
       run: |
         chmod +x gradlew
         ./gradlew build
-        zip -r outputs.zip ./app/build/outputs
+        zip -r outputs.zip ./app/build/outputs ./module/build/outputs
 
     # Create release
     - name: Generate release tag
